@@ -6,7 +6,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class CorsConfig  implements  WebMvcConfigurer{
+public class CorsConfig implements WebMvcConfigurer {
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {
@@ -14,13 +14,10 @@ public class CorsConfig  implements  WebMvcConfigurer{
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**") // Aplica a todas las rutas
-                        .allowedOrigins("http://127.0.0.1:5500") // Dirección del frontend
-                        .allowedOrigins("/**") // Dirección del frontend
+                        .allowedOrigins("*") // Permite cualquier origen
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
-                        .allowCredentials(true); // Permite el uso de cookies o autenticación
-
-
+                        .allowCredentials(false); // Debe estar en false si usas "*"
             }
         };
     }
