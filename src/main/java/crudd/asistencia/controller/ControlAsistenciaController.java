@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/controlAsistencia")
+@CrossOrigin(origins = "/**")
 public class ControlAsistenciaController {
 
 
